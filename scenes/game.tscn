@@ -28,3 +28,18 @@ position = Vector2(481, 277)
 
 [node name="platform4" parent="." unique_id=242888855 instance=ExtResource("2_yqjtg")]
 position = Vector2(769, 115)
+
+[node name="platform5" parent="." unique_id=1624942804 instance=ExtResource("2_yqjtg")]
+position = Vector2(600, -40)
+
+[node name="platform6" parent="." unique_id=293462032 instance=ExtResource("2_yqjtg")]
+position = Vector2(780, -190)
+
+[node name="platform7" parent="." unique_id=1795372276 instance=ExtResource("2_yqjtg")]
+position = Vector2(600, -340)
+
+[node name="platform8" parent="." unique_id=588777633 instance=ExtResource("2_yqjtg")]
+position = Vector2(780, -490)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1549542257]
+position = Vector2(640, 360)
