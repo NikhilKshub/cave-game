@@ -1,12 +1,14 @@
 extends Node2D
 
 var platform_scene = preload("res://scenes/platform.tscn")
+var ring_scene = preload("res://scenes/ring.tscn")
 var top_y = 680
 var last_x = 640
 var min_gap = 80
 var max_gap = 170
 var max_step = 200
 @onready var camera = $Camera2D
+@onready var player = $player
 
 func make_platform():
 	var new_platform = platform_scene.instantiate()
@@ -18,7 +20,15 @@ func make_platform():
 	top_y = new_y
 	last_x = new_x
 	
+func make_ring():
+	var new_ring = ring_scene.instantiate()
+	new_ring.position = player.position
+	add_child(new_ring)
+	
 func _process(delta):
 	while top_y > camera.position.y - 600:
 		make_platform()
 	
+	
+func _ready():
+	player.landed.connect(make_ring)
