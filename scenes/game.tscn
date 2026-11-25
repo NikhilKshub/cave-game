@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dvmbjnxeyu82n" path="res://scripts/game.gd" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://c8mydu7jhxmx4" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Script" uid="uid://b3w7b7wstijq2" path="res://scripts/camera.gd" id="3_lnu2h"]
+[ext_resource type="AudioStream" uid="uid://dxo8f01obtdnw" path="res://assets/sound/note.wav" id="4_lbhrr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_srsb4"]
 size = Vector2(1280, 40)
@@ -23,3 +24,8 @@ shape = SubResource("RectangleShape2D_srsb4")
 position = Vector2(640, 360)
 script = ExtResource("3_lnu2h")
 player = NodePath("../player")
+
+[node name="note_player" type="AudioStreamPlayer2D" parent="." unique_id=816536730]
+stream = ExtResource("4_lbhrr")
+volume_db = -6.0
+max_polyphony = 4

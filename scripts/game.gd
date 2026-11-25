@@ -8,6 +8,9 @@ var min_gap = 80
 var max_gap = 170
 var max_step = 200
 var extra_chance = 0.5
+var scale_steps = [0, 2, 4, 7, 9]
+
+@onready var note_player = $note_player
 @onready var camera = $Camera2D
 @onready var player = $player
 
@@ -41,6 +44,15 @@ func _process(_delta):
 	while top_y > camera.position.y - 600:
 		make_platform()
 	
-	
+func play_note():
+	var height = 680 - player.position.y
+	var index = int(height / 100) % 10
+	var degree = index % 5
+	var octave = int(index / 5.0)
+	var semitones = scale_steps[degree] + 12 * octave
+	note_player.pitch_scale = pow(2, semitones / 12.0)
+	note_player.play()
+
 func _ready():
 	player.landed.connect(make_ring)
+	player.landed.connect(play_note)
