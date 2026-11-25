@@ -7,3 +7,8 @@ func _ready():
 	grow_tween.tween_callback(queue_free)
 	var fade_tween = create_tween()
 	fade_tween.tween_property(self, "modulate:a", 0.0, 0.5)
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group("platforms"):
+		body.light_up()
