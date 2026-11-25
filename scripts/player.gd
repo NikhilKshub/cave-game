@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+signal landed
 var gravity = 1500
 var bounce_speed = 883
 var steer_speed = 300
@@ -10,4 +11,5 @@ func _physics_process(delta):
 	move_and_slide()
 	position.x = wrapf(position.x, 0, 1280)
 	if is_on_floor():
+		landed.emit()
 		velocity.y = -bounce_speed

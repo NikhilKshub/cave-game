@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://cl1642aaa7e7g"]
 
 [ext_resource type="Texture2D" uid="uid://bvqjw1b01qudn" path="res://icon.svg" id="1_03kdj"]
+[ext_resource type="Script" uid="uid://de7trwegmm8bw" path="res://scripts/ring.gd" id="1_f7lrs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_srsb4"]
 radius = 220.0
 
 [node name="ring" type="Area2D" unique_id=1271859457]
+script = ExtResource("1_f7lrs")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1866883272]
 scale = Vector2(3.44, 3.44)
