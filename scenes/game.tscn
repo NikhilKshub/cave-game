@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c8mydu7jhxmx4" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://fgrh343tykxr" path="res://scenes/platform.tscn" id="2_yqjtg"]
+[ext_resource type="Script" uid="uid://b3w7b7wstijq2" path="res://scripts/camera.gd" id="3_lnu2h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_srsb4"]
 size = Vector2(1280, 40)
@@ -41,5 +42,7 @@ position = Vector2(600, -340)
 [node name="platform8" parent="." unique_id=588777633 instance=ExtResource("2_yqjtg")]
 position = Vector2(780, -490)
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1549542257]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1549542257 node_paths=PackedStringArray("player")]
 position = Vector2(640, 360)
+script = ExtResource("3_lnu2h")
+player = NodePath("../player")
