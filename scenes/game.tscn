@@ -4,6 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://c8mydu7jhxmx4" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Script" uid="uid://b3w7b7wstijq2" path="res://scripts/camera.gd" id="3_lnu2h"]
 [ext_resource type="AudioStream" uid="uid://dxo8f01obtdnw" path="res://assets/sound/note.wav" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://baqjy0l6pk7xp" path="res://scenes/monster.tscn" id="5_iywne"]
+[ext_resource type="AudioStream" uid="uid://bt2per2hf8ua0" path="res://assets/sound/music_hum.wav" id="6_u5sy4"]
+[ext_resource type="AudioStream" uid="uid://i2y82usj54lk" path="res://assets/sound/music_pad.wav" id="7_gee14"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_srsb4"]
 size = Vector2(1280, 40)
@@ -30,3 +33,17 @@ stream = ExtResource("4_lbhrr")
 volume_db = -6.0
 max_polyphony = 4
 bus = &"notes"
+
+[node name="monster" parent="." unique_id=347382647 instance=ExtResource("5_iywne")]
+position = Vector2(0, 800)
+
+[node name="hum_player" type="AudioStreamPlayer" parent="." unique_id=71704533]
+stream = ExtResource("6_u5sy4")
+volume_db = 15.0
+autoplay = true
+bus = &"music"
+
+[node name="pad_player" type="AudioStreamPlayer" parent="." unique_id=863016480]
+stream = ExtResource("7_gee14")
+autoplay = true
+bus = &"music"
