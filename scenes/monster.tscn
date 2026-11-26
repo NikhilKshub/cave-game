@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://baqjy0l6pk7xp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_srsb4"]
+size = Vector2(1280, 900)
+
+[node name="monster" type="Area2D" unique_id=347382647]
+z_index = 10
+
+[node name="body" type="ColorRect" parent="." unique_id=2122929014]
+offset_right = 1280.0
+offset_bottom = 900.0
+color = Color(0, 0, 0, 0.8509804)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=291046283]
+position = Vector2(640, 450)
+shape = SubResource("RectangleShape2D_srsb4")
