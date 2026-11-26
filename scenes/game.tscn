@@ -25,7 +25,7 @@ position = Vector2(640, 360)
 script = ExtResource("3_lnu2h")
 player = NodePath("../player")
 
-[node name="note_player" type="AudioStreamPlayer2D" parent="." unique_id=816536730]
+[node name="note_player" type="AudioStreamPlayer" parent="." unique_id=2108419754]
 stream = ExtResource("4_lbhrr")
 volume_db = -6.0
 max_polyphony = 4
