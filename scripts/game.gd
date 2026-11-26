@@ -13,6 +13,10 @@ var scale_steps = [0, 2, 4, 7, 9]
 @onready var note_player = $note_player
 @onready var camera = $Camera2D
 @onready var player = $player
+@onready var monster = $monster
+
+var hearts = 3
+var safe = false
 
 
 func add_platform(x, y):
@@ -43,6 +47,8 @@ func make_ring():
 func _process(_delta):
 	while top_y > camera.position.y - 600:
 		make_platform()
+	if Input.is_action_just_pressed("restart"):
+		get_tree().reload_current_scene()
 	
 func play_note():
 	var height = 680 - player.position.y
@@ -56,3 +62,24 @@ func play_note():
 func _ready():
 	player.landed.connect(make_ring)
 	player.landed.connect(play_note)
+	monster.caught.connect(on_caught)
+	
+	
+func on_caught():
+	if safe:
+		return 
+	hearts -=1
+	print("hearts", hearts)
+	if hearts <= 0:
+		get_tree().reload_current_scene()
+		return
+	player.rescue_bounce()
+	monster.position.y += 400
+	safe = true
+	get_tree().create_timer(2.0).timeout.connect(end_safe)
+	
+func end_safe():
+	safe = false
+
+	
+	
